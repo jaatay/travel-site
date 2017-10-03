@@ -4,6 +4,7 @@
 
   "scripts": {
     "gulp": "gulp"
+    "gulpStyles": "gulp styles"
   },
 
   "dependencies": {
