@@ -3,8 +3,8 @@
   "version": "1.0.0",
 
   "scripts": {
-    "gulp": "gulp"
-    "gulpStyles": "gulp styles"
+    "gulp": "gulp",
+    "gulpStyles": "gulp styles",
   },
 
   "dependencies": {
