@@ -8,3 +8,9 @@ gulp.task('default', function() {
 gulp.task('html', function() {
   console.log("Gulp html task");
 })
+
+gulp.task('watch', function() {
+  watch('./app/index.html', function() {
+    gulp.start('html');
+  })
+})
