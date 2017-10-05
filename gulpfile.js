@@ -12,20 +12,25 @@ gulp.task('default', function() {
 });
 
 gulp.task('html', function() {
-  console.log("Imagine something useful being done to your HTML here.");
+  browserSync.reload();
 });
 
 gulp.task('styles', function() {
   return gulp.src('./app/assets/styles/styles.css')
     .pipe(postcss([cssImport, cssvars, nested, autoprefixer]))
+    .on('error', function(errorInfo){
+      console.log(errorInfo.toString());
+      this.emit('end');
+    })
     .pipe(gulp.dest('./app/temp/styles'));
 });
 
 gulp.task('watch', function() {
 
   browserSync.init({
+    notify: false,
     server: {
-      baseDirectory: "app"
+      baseDir: "app"
     }
   })
   watch('./app/index.html', function() {
@@ -33,7 +38,12 @@ gulp.task('watch', function() {
   });
 
   watch('./app/assets/styles/**/*.css', function() {
-    gulp.start('styles');
+    gulp.start('cssInject');
   });
 
+});
+
+gulp.task('cssInject', ['styles'], function(){
+  return gulp.src('./app/temp/styles/styles.css')
+  .pipe(browserSync.stream());
 });
