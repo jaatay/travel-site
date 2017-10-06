@@ -4,7 +4,7 @@
 
   &__image {
     display: block;
-    
+
   }
   &__text-content {
     position: absolute;
@@ -43,7 +43,7 @@
     }
 
     @mixin atLarge {
-      font-size: 4.8rem;
+      font-size: 3.8rem;
     }
   }
 
@@ -64,7 +64,7 @@
     }
 
     @mixin atLarge {
-      font-size: 4.8rem;
+      font-size: 4rem;
     }
   }
 
